@@ -13,3 +13,10 @@ import Navbar from '../components/Navbar.vue';
         </div>
     </div>
 </template>
+<style>
+.main-content{
+    width:100%;
+    height:calc(100vh - 3.8rem);
+    overflow-x: hidden;
+}
+</style>
