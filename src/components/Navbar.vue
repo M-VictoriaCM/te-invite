@@ -1,7 +1,7 @@
 <script>
 import logo from '../assets/img/logo.svg';
     export default {
-        name: 'Navbar',
+        name: 'NavbarSection',
         data() {
             return {
                 logo: logo

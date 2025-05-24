@@ -1,11 +1,8 @@
 <script>
-import { ref } from 'vue' 
 import mockupImage from '../../assets/img/mobile-portada.webp';
-import Flecha from '../icon/Flecha.vue';
 
 export default {
-  name: 'Frame',
-  components: { Flecha },
+  name: 'FrameSection',
   data() {
     return {
       mockupImage,
@@ -34,7 +31,8 @@ export default {
       <div class="mockup_">
         <div class="mockup_frame">
           <iframe src="https://teinvite.ar/invitacion-julia_rey/" class="iframe_inside_mockup"
-            style="border: none;"></iframe>
+            style="border: none;">
+          </iframe>
             <div v-if="showCartel" class="iframe_overlay"></div>
         </div>
       <div v-if="showCartel" class="container_cartel">
@@ -102,10 +100,9 @@ export default {
 }
 
 .mockup_frame {
-  width: 90%;
-  max-width: 300px;
+  width: 290px; /* Cambia el tamaño del mockup */
   /* o el tamaño que desees */
-  height: 560px;
+  height: 540px;
   position: relative;
   background-image: url('../../assets/img/white_blank_smartphone_mockup.png');
   background-size: cover;
@@ -120,8 +117,8 @@ export default {
   margin: 0 auto;
   left: 0;
   right: 0;
-  width: 254px;
-  height: 540px;
+  width: 250px;
+  height: 520px;
   border: none;
   border-radius: 26px;
 }
@@ -179,8 +176,8 @@ export default {
     left: 0; 
     right: 0; 
     margin: 0 auto; 
-    width: 254px; 
-    height: 540px; 
+    width: 250px; 
+    height: 520px; 
     background-color: rgba(0, 0, 0, 0.4); 
     border-radius: 26px; 
     z-index: 1; 

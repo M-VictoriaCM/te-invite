@@ -3,100 +3,115 @@ import lucia from '../assets/img/lucia.webp';
 import cata from '../assets/img/cata_rivero.webp';
 import julia from '../assets/img/julia_rey.webp';
 import martina from '../assets/img/martina.webp';
-import Card from './CardPhone.vue';
 
 export default {
   name: 'CardGrid',
-  components: {
-    Card
-  },
   data() {
     return {
       cards: [
         {
-          id: 1,
-          image: lucia,
-          link: "https://teinvite.ar/invitacion-julia_rey/#/",
-          alt: "Invitación de Lucía"
+          image:lucia,
+          title: 'Lucia',
+          link:"https://teinvite.ar/modelo/invitacion-lucia/#/"
         },
         {
-          id: 2,
           image: cata,
-          link: "https://teinvite.ar/invitacion_cata_rivero/#/",
-          alt: "Invitación de Cata"
+          title: 'Cata',
+          link: "https://teinvite.ar/modelo/invitacion-cata/#/"
         },
         {
-          id: 3,
           image: julia,
-          link: "https://teinvite.ar/invitacion-julia_rey/#/",
-          alt: "Invitación de Julia"
+          title: 'Julia',
+          link: "https://teinvite.ar/modelo/invitacion-julia/#/"
         },
         {
-          id: 2,
           image: martina,
-          link: "https://teinvite.ar/modelo/invitacion_martina/#/",
-          alt: "Invitación de Martina"
+          title: 'Martina',
+          link: "https://teinvite.ar/modelo/invitacion-martina/#/"
         }
       ]
     };
-  },
-  computed: {
-    visibleCards() {
-      return this.showAll ? this.cards : this.cards.slice(0, 3);
-    }
   }
-
 }
 </script>
+
 <template>
-  <div class="container_grid">
-    <Card v-for="card in cards" :key="card.id" :image="card.image" :link="card.link" :alt="card.alt" />
-    <!-- <button v-if="!showAll" @click="showAll = true" class="btn btn-primary ver-mas">
-      Ver más
-    </button> -->
+  <div class="contenedor">
+    <div
+      v-for="(card, index) in cards"
+      :key="index"
+      class="card">
+      <img :src="card.image" :alt="'Preview ' + card.title"/>
+      <div class="hover-text">
+        <a href="card.link" type="button" target="_blank" class="btn" :title="'Open ' + card.title">
+           <i class="fa-solid fa-arrow-up-right-from-square icon"></i>
+        </a>
+      </div>
+    </div>
   </div>
 </template>
-<style>
-.container_grid {
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr;
-  /* Por defecto: 1 columna */
-  gap: 1rem;
-  justify-items: center;
-  padding-bottom: 2rem;
-}
 
-/* .ver-mas {
-  margin-top: 1rem;
-  padding: 10px 30px;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  background-color: var(--color_primary);
-  border: 1px solid var(--color_primary);
-  z-index: 1;
-  position: relative;
-  height: 48px;
-}
-
-.ver-mas:hover {
-  color: var(--color_primary);
-  background-color: #fff;
-  border: 1px solid var(--color_primary);
-} */
-
-@media (min-width: 768px) and (max-width: 1023px) {
-  .container_grid {
-    grid-template-columns: repeat(2, 1fr);
+<style scoped>
+.contenedor {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 1rem 0;
   }
-}
-
-@media (min-width: 1024px) {
   
-  .container_grid {
-    width:80%;
-    grid-template-columns: repeat(4, 1fr);
+  .card {
+      margin: 30px 0;
+      width: calc(40% - 100px);
+      position: relative;
+      background: none;
+      border:none;
   }
-}
+  
+  .card {
+      width: 250px;
+      height: auto;
+  }
+  
+  .card>.mobile {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+  }
+  
+  .card:hover {
+      transform: scale(1.1);
+  }
+  
+  .hover-text {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 50px;
+      opacity: 0;
+      transition: .5s;
+      padding-top: 50%;
+      background-image: linear-gradient(to top, rgba(22, 0, 34, 0.8), rgba(255, 255, 255, .3));
+  }
+  .hover-text{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+  }
+  .icon{
+      color: #fff;
+      font-size: 2rem;
+  }
+  .card:hover .hover-text {
+      opacity: 1;
+  }
+  .btn{
+      background: rgba(19, 1, 31, 0.3);
+  }
+  .btn:hover{
+      background: rgba(19, 1, 31, 0.8);
+      color: white;
+  }
 </style>

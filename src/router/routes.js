@@ -1,4 +1,4 @@
-import { createRouter, createMemoryHistory,createWebHistory  } from 'vue-router'
+import { createRouter, createWebHistory  } from 'vue-router'
 
 import DashboardLayout from '../layouts/DashboardLayout.vue';
 import Home from '../pages/Home.vue';

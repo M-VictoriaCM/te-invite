@@ -3,7 +3,7 @@ export default {
     name: 'CardPhone',
     props: {
         image: {
-            type: Object, // o String dependiendo de cómo importes las imágenes
+            type: String, // o String dependiendo de cómo importes las imágenes
             required: true
         },
         link: {
@@ -29,77 +29,17 @@ export default {
     </div>
 </template>
 <style>
+/* En CardPhone.vue */
 .card {
-    margin: 30px 0;
-    width: calc(40% - 100px);
-    position: relative;
-    background: none;
-    border: none;
+    width: 100%; /* Ocupa todo el espacio del grid */
+    max-width: 300px; /* Máximo ancho */
+    height: auto; /* Altura automática */
+    margin: 0 auto; /* Centrado si es necesario */
 }
 
-.card {
-    width: 280px;
+.mobile {
+    width: 100%; /* La imagen ocupa todo el espacio de la card */
     height: auto;
-}
-
-.card>.mobile {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-}
-
-.card:hover {
-    transform: scale(1.1);
-}
-
-.hover-text {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 50px;
-    opacity: 0;
-    transition: .5s;
-    padding-top: 50%;
-    background-image: linear-gradient(to top, rgba(22, 0, 34, 0.8), rgba(255, 255, 255, .3));
-}
-
-.hover-text {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-}
-
-.icon {
-    color: #fff;
-    font-size: 2rem;
-}
-
-.card:hover .hover-text {
-    opacity: 1;
-}
-
-.btn {
-    background: rgba(19, 1, 31, 0.3);
-}
-
-.btn:hover {
-    background: rgba(19, 1, 31, 0.8);
-    color: white;
-}
-@media (min-width: 768px) and (max-width: 991px) {
-    .card {
-        margin: 20px;
-    }
-}
-
-@media (min-width: 1024px) {
-    .card {
-        margin: 10px;
-        width: 200px;
-        height: auto;
-    }
+    display: block; /* Elimina espacios fantasma */
 }
 </style>

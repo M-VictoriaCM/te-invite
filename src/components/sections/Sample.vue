@@ -1,9 +1,10 @@
 <script>
 import linea2 from '../../assets/img/lineas.svg';
-import CardGrid from '../CardGrid.vue';
+
+import CardGrid from '../CardGrid.vue'
 
 export default {
-    name: "Sample",
+    name: 'SampleCard',
     components: {
         CardGrid
     },
@@ -18,13 +19,13 @@ export default {
 </script>
 <template>
     <div class="sample_container">
-        <img :src="linea2" class="lineas-right" alt="Patrón de líneas">
+        <!-- <img :src="linea2" class="lineas-right" alt="Patrón de líneas"> -->
         <div class="sample_content">
             <div class="sample_details">
                 <h1>{{ title }}</h1>
                 <p>{{ subtitle }}</p>
             </div>
-            <CardGrid/>
+            <CardGrid class="grid" />
         </div>
     </div>
 </template>
@@ -34,27 +35,35 @@ export default {
     min-height: 100vh;
     overflow: hidden;
     position: relative;
+    padding: 4rem 1rem;
 }
-
-.sample_content {
+.grid{
+    border:1px solid red;
+    position:relative;
+    z-index: 10;
+;
+}
+/* .sample_content {
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-}
+    position: absolute;
+  z-index: 10;
+} */
 
-.sample_details {
+ /*.sample_details {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 1.5rem;
     gap: 20px;
-}
+} */
 
-.sample_details h1 {
+/* .sample_details h1 {
     text-align: center;
     font-size: 2rem;
     font-weight: 900;
@@ -73,7 +82,7 @@ export default {
     z-index: 0; 
     opacity: 0.6;
     transform: rotate(180deg);
-}
+} */
 @media (min-width: 768px) and (max-width: 1023px) {
     .sample_content {
         width: 100%;
