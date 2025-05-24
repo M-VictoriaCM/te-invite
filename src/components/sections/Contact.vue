@@ -1,7 +1,8 @@
 <script setup>
+
 import { ref, onMounted } from 'vue'
 import emailjs from 'emailjs-com'
-import { VueReCaptcha } from 'vue-recaptcha-v3'
+import {toast} from 'vue3-toastify'
 
 // Estados reactivos
 const recaptchaSiteKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY
@@ -16,8 +17,8 @@ const errorMessage = ref('')
 const recaptchaToken = ref(null)
 
 // Inicializar reCAPTCHA
-const recaptcha = ref(null)
 const executeRecaptcha = ref(null)
+const namePattern = /^[A-Za-zÁÉÍÓÚÑáéíóúñ\s]{2,}$/
 
 onMounted(async () => {
   try {
@@ -58,7 +59,6 @@ onMounted(async () => {
       })
     }
 
-    console.log('reCAPTCHA configurado correctamente')
   } catch (err) {
     console.error('Error al configurar reCAPTCHA:', err)
     errorMessage.value = 'Error en la verificación de seguridad'
@@ -68,7 +68,8 @@ onMounted(async () => {
 // Validación del formulario
 const isFormValid = () => {
   return (
-    name.value.trim().length > 0 &&
+    name.value.trim().length >= 2 &&
+    namePattern.test(name.value.trim()) &&
     email.value &&
     /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value) &&
     message.value &&
@@ -79,11 +80,18 @@ const isFormValid = () => {
 
 // Enviar formulario
 const sendEmail = async () => {
-  if (!isFormValid()) return
-  
+  if (!isFormValid()) {
+    if (!/^[A-Za-zÁÉÍÓÚÑáéíóúñ\s]{2,}$/.test(name.value.trim())) {
+  toast.error('El nombre debe tener al menos 2 letras.')
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+      toast.error('Ingresá un correo electrónico válido.')
+    } else if (!message.value || message.value.trim().length < 10) {
+      toast.error('El mensaje debe tener al menos 10 caracteres.')
+    }
+    return
+  }
+
   loading.value = true
-  error.value = false
-  errorMessage.value = ''
 
   try {
     // Obtener token reCAPTCHA
@@ -111,7 +119,7 @@ const sendEmail = async () => {
       throw new Error('Error al enviar el mensaje')
     }
 
-    success.value = true
+    toast.success('Mensaje enviado correctamente')
     name.value = ''
     email.value = ''
     message.value = ''
@@ -119,8 +127,7 @@ const sendEmail = async () => {
 
   } catch (err) {
     console.error('Error completo:', err)
-    error.value = true
-    errorMessage.value = err.message || 'Error al procesar tu solicitud'
+    toast.error(err.message || 'Error al procesar tu solicitud')
   } finally {
     loading.value = false
   }
@@ -130,9 +137,13 @@ const sendEmail = async () => {
 <template>
   <form @submit.prevent="sendEmail" class="form">
     <input type="text" v-model="name" placeholder="Nombre">
-    <input type="email" v-model="email" placeholder="Correo electrónico" required>
-    <textarea v-model="message" placeholder="Tu mensaje..." required></textarea>
+<span v-if="name && name.trim().length < 2" class="error-text">Ingresá tu nombre</span>
 
+<input type="email" v-model="email" placeholder="Correo electrónico" required>
+<span v-if="email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)" class="error-text">Correo inválido</span>
+
+<textarea v-model="message" placeholder="Tu mensaje..." required></textarea>
+<span v-if="message && message.trim().length < 10" class="error-text">Debe tener al menos 10 caracteres</span>
     <button 
       type="submit" 
       :disabled="!isFormValid() || loading"
@@ -186,5 +197,9 @@ button:disabled {
 .error-message {
   color: red;
   margin-top: 1rem;
+}
+.error-text {
+  color: red;
+  font-size: 0.85rem;
 }
 </style>
