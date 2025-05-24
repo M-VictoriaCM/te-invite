@@ -1,11 +1,10 @@
 <script>
-import { ref, onMounted } from 'vue';
 import mockup1 from '../../assets/img/0827_smartphone_on_hand_with_instagram_display_mockup 1.png';
 import linea from '../../assets/img/lineas.svg';
 import textura from '../../assets/img/textura.png';
 
 export default {
-  name: "Home",
+  name: 'HeroSection',
   data() {
     return {
       subtitle: "Sumate a la nueva forma de invitar y sorprendé a tus familiares y amigos.",

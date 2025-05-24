@@ -1,6 +1,6 @@
 <script>
 export default {
-    name:'Flecha',
+  name:'IconFlecha',
   mounted() {
     // Opcional: Calcular la longitud exacta de cada trazo
     this.$nextTick(() => {

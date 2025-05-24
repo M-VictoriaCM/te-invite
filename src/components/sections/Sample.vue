@@ -4,7 +4,7 @@ import linea2 from '../../assets/img/lineas.svg';
 import CardGrid from '../CardGrid.vue'
 
 export default {
-    name: "Sample",
+    name: 'SampleCard',
     components: {
         CardGrid
     },

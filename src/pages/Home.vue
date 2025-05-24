@@ -3,12 +3,12 @@ import Hero from '../components/sections/Hero.vue';
 import WhatWeDo from '../components/sections/WhatWeDo.vue';
 import FrameVue from '../components/sections/Frame.vue'
 import Sample from '../components/sections/Sample.vue';
-
-import Footer from '../components/Footer.vue';
+import Contact from '../components/sections/Contact.vue';
+import FooterVue from '../components/Footer.vue';
 
 export default {
-  components: { Hero, WhatWeDo, FrameVue, Sample, Footer },
-  name: "Home"
+  name: 'HomePage',
+  components: { Hero, WhatWeDo, FrameVue, Sample, Contact, FooterVue },
 }
 </script>
 <template>
@@ -17,8 +17,8 @@ export default {
     <WhatWeDo id="whatWeDoSection"/>
     <FrameVue id="frameSection"/>
     <Sample id="sampleSection"/>    
-    <!-- <Contact id="contactSection"/> -->
-    <Footer/>
+    <Contact id="contactSection"/>
+    <FooterVue/>
   </div>
 </template>
 

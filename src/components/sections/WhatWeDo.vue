@@ -70,7 +70,7 @@ export default{
     font-weight: 900;
 }
 .details h4{
-    width: 300px;
+    width: 280px;
     font-size: 1.2rem;
     font-weight: 400;
     text-align: left;

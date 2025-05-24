@@ -1,7 +1,8 @@
 <script>
+
 import logo from '../assets/img/logo(1).svg';
 export default {
-    name: 'Footer',
+    name: 'FooterVue',
     data() {
         return {
             logo:logo

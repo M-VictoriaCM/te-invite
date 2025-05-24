@@ -1,11 +1,8 @@
 <script>
-import { ref } from 'vue' 
 import mockupImage from '../../assets/img/mobile-portada.webp';
-import Flecha from '../icon/Flecha.vue';
 
 export default {
-  name: 'Frame',
-  components: { Flecha },
+  name: 'FrameSection',
   data() {
     return {
       mockupImage,
