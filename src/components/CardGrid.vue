@@ -96,7 +96,7 @@ export default {
   }
   .icon{
       color: #fff;
-      font-size: 2rem;
+      font-size: 1rem;
   }
   .card:hover .hover-text {
       opacity: 1;
