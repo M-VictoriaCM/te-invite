@@ -1,6 +1,6 @@
 <script setup>
+import FooterVue from '../components/Footer.vue';
 import Navbar from '../components/Navbar.vue';
-
 </script>
 
 <template>
@@ -11,12 +11,22 @@ import Navbar from '../components/Navbar.vue';
                 <router-view/>
             </main>
         </div>
+        <FooterVue/>
     </div>
 </template>
 <style>
-.main-content{
-    width:100%;
-    height:calc(100vh - 3.8rem);
+.dashboard{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
     overflow-x: hidden;
+}
+.main-content{
+     width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    margin-top: 4rem; /* compensamos el navbar fijo */
+    
 }
 </style>

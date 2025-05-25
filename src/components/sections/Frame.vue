@@ -50,7 +50,7 @@ export default {
 
 .container_frame {
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
   overflow: hidden;
   position: relative;
   background: #FFEA7A;

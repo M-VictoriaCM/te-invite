@@ -32,9 +32,12 @@ export default{
 <style>
 .whatwedo_container {
   width: 100%;
-  min-height:100vh;
+  height:100vh;
   position:relative;
   overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .lineas2-img{
     position: absolute;
@@ -52,7 +55,7 @@ export default{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     gap: 30px;
     position: relative;
     z-index: 2;
@@ -116,7 +119,7 @@ export default{
 @media (min-width: 1024px) {
     .whatwedo_container{
         width:100%;
-        height:calc(100vh - 3rem);
+        height:100vh;
     }
     .whatwedo_content{
         display: flex;

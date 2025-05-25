@@ -1,6 +1,6 @@
 <script>
 
-import logo from '../assets/img/logo(1).svg';
+import logo from '../assets/img/logo.svg';
 export default {
     name: 'FooterVue',
     data() {
@@ -35,8 +35,7 @@ export default {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    background: white;
-}
+    background: var(--color_primary);}
 .section_invitation{
     width:100%;
     display: flex;

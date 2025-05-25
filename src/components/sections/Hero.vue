@@ -18,12 +18,20 @@ export default {
     setTimeout(() => {
       this.animated = true;
     }, 300);
+  },
+  methods: {
+  scrollToContact() {
+    const element = document.getElementById("contactSection");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
   }
+}
   
 }
 </script>
 <template>
-  <div class="hero_container">
+  <div id="inicio" class="hero_container">
     <img :src="textura" class="textura-img" alt="">
     <img :src="linea" class="lineas-img" alt="Patrón de líneas">
     <div class="section-content">
@@ -39,7 +47,8 @@ export default {
         <div class="text2">
           <h3>{{ subtitle }}</h3>
         </div>
-        <button class="btn btn-primary btn-custom">Contactar</button>
+        <button class="btn btn-primary btn-custom" @click="scrollToContact">Contactar</button>
+
       </div>
       <div class="hero-img">
         <img :src="mockup1" alt="mockup1" />
@@ -52,7 +61,8 @@ export default {
 /* Estilos para móvil (base) */
 .hero_container {
   width: 100vw;
-  min-height: 100vh;
+  height: 100vh;
+  padding-top:3rem;
   background-color: #f7dd55;
   position: relative;
   overflow: hidden;

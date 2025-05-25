@@ -17,17 +17,17 @@ export default {
         {
           image: cata,
           title: 'Cata',
-          link: "https://teinvite.ar/modelo/invitacion-cata/#/"
+          link: "https://teinvite.ar/invitacion_cata_rivero/#/"
         },
         {
           image: julia,
           title: 'Julia',
-          link: "https://teinvite.ar/modelo/invitacion-julia/#/"
+          link: "https://teinvite.ar/invitacion_julia_rey/#/"
         },
         {
           image: martina,
           title: 'Martina',
-          link: "https://teinvite.ar/modelo/invitacion-martina/#/"
+          link: "https://teinvite.ar/modelo/invitacion_martina/#/"
         }
       ]
     };
@@ -43,7 +43,7 @@ export default {
       class="card">
       <img :src="card.image" :alt="'Preview ' + card.title"/>
       <div class="hover-text">
-        <a href="card.link" type="button" target="_blank" class="btn" :title="'Open ' + card.title">
+        <a :href="card.link" type="button" target="_blank" class="btn" :title="'Open ' + card.title">
            <i class="fa-solid fa-arrow-up-right-from-square icon"></i>
         </a>
       </div>
@@ -53,23 +53,20 @@ export default {
 
 <style scoped>
 .contenedor {
+   width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 1rem 0;
   }
   
   .card {
-      margin: 30px 0;
-      width: calc(40% - 100px);
+      width: calc(60% - 100px);
       position: relative;
       background: none;
       border:none;
   }
-  
-  .card {
-      width: 250px;
-      height: auto;
+  .card{
+    margin: .5rem;
   }
   
   .card>.mobile {
@@ -78,10 +75,7 @@ export default {
       object-fit: cover;
   }
   
-  .card:hover {
-      transform: scale(1.1);
-  }
-  
+ 
   .hover-text {
       position: absolute;
       top: 0;
@@ -113,5 +107,17 @@ export default {
   .btn:hover{
       background: rgba(19, 1, 31, 0.8);
       color: white;
+  }
+  @media (min-width:1024px){
+    
+    .card {
+      width: calc(20% - 100px);
+      position: relative;
+      background: none;
+      border:none;
+    }
+    .card{
+      margin: 0 10px;
+    }
   }
 </style>
