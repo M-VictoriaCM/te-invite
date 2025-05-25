@@ -141,15 +141,15 @@ const sendEmail = async () => {
       
       <form @submit.prevent="sendEmail" class="form">
       <label for="">Nombre:</label>
-      <input type="text" v-model="name" placeholder="Nombre">
+      <input type="text" v-model="name" placeholder="Ingresá tu nombre">
       <span v-if="name && name.trim().length < 2" class="error-text">Ingresá tu nombre</span>
 
       <label for="">Correo electrónico:</label>
-      <input type="email" v-model="email" placeholder="Correo electrónico" required>
+      <input type="email" v-model="email" placeholder="Ingresá tú correo electrónico" required>
       <span v-if="email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)" class="error-text">Correo inválido</span>
 
       <label for="">Mensaje:</label>
-      <textarea v-model="message" placeholder="Tu mensaje..." required></textarea>
+      <textarea v-model="message" placeholder="Ingresá tú mensaje..." required></textarea>
       <span v-if="message && message.trim().length < 10" class="error-text">Debe tener al menos 10 caracteres</span>
       <button type="submit" :disabled="!isFormValid() || loading" :class="{ 'disabled': !isFormValid() || loading }">
         {{ loading ? 'Enviando...' : 'Enviar' }}
