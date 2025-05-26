@@ -25,16 +25,16 @@ const routes = [
         meta: { scrollTo: 'que-hacemos' }
       },
       {
-        path: '/sampleSection',
+        path: '/modelos',
         name: 'sample',
         component: Home,
-        meta: { scrollTo: 'sampleSection' }
+        meta: { scrollTo: 'modelos' }
       },
       {
-        path: '/contactSection',
+        path: '/contacto',
         name: 'contacto',
         component: Home,
-        meta: { scrollTo: 'contactSection' }
+        meta: { scrollTo: 'contacto' }
       }
     ]
   }

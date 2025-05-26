@@ -1,5 +1,5 @@
 <script>
-import mockup2 from '../../assets/img/mockup2.png';
+import mockup2 from '../../assets/img/mockup2.webp';
 import linea2 from '../../assets/img/lineas2.svg';
 
 export default{

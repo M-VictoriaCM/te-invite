@@ -9,8 +9,8 @@ export default {
       sections: [
         { id: 'inicio', label: 'Home' },
         { id: 'que-hacemos', label: '¿Qué hacemos?' },
-        { id: 'sampleSection', label: 'Modelos' },
-        { id: 'contactSection', label: 'Contacto' }
+        { id: 'modelos', label: 'Modelos' },
+        { id: 'contacto', label: 'Contacto' }
       ]
     };
   },

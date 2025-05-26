@@ -1,7 +1,7 @@
 <script>
-import mockup1 from '../../assets/img/0827_smartphone_on_hand_with_instagram_display_mockup 1.png';
+import mockup1 from '../../assets/img/0827_smartphone_on_hand_with_instagram_display_mockup 1.webp';
 import linea from '../../assets/img/lineas.svg';
-import textura from '../../assets/img/textura.png';
+import textura from '../../assets/img/textura.webp';
 
 export default {
   name: 'HeroSection',

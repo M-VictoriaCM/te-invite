@@ -44,8 +44,8 @@ export default {
     <Hero id="inicio" />
     <WhatWeDo id="que-hacemos" />
     <FrameVue id="frameSection" />
-    <Sample id="sampleSection" />
-    <Contact id="contactSection" />
+    <Sample id="modelos" />
+    <Contact id="contacto" />
   </div>
 </template>
 

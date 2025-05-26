@@ -100,11 +100,10 @@ export default {
 }
 
 .mockup_frame {
-  width: 290px; /* Cambia el tamaño del mockup */
-  /* o el tamaño que desees */
+  width: 290px; 
   height: 540px;
   position: relative;
-  background-image: url('../../assets/img/white_blank_smartphone_mockup.png');
+  background-image: url('../../assets/img/white_blank_smartphone_mockup.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
